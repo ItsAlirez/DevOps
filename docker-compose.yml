@@ -1,24 +1,24 @@
-version: 2
+version: "2"
 services:
     wordpress1:
         image: wordpress
         ports:
             - "9001:80"
         networks:
-            network1
+            - network1
     
     Wordpress2:
         image: wordpress
         ports:
             - "9002:80"
         networks:
-             network1
+            - network1
     ng1:
         image: nginx
         ports: 
             - "80:80"
         networks:
-             network1
+            - network1
 networks:
     network1
         
