@@ -41,9 +41,18 @@ services:
             - /project1/db-data:/var/lib/mysql
         networks:
             - network1
+    nginx:
+         image: newnginx
+         container_name: nginx
+         restart: always
+         ports:
+            - "80:80"
+         depends_on:
+            - wordpress1
+            - wordpress2        
 volumes:
   wordpress1_data:
   wordpress2_data:
   db_data:
 networks:
-    network1
+    network1:
