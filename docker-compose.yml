@@ -2,23 +2,48 @@ version: "2"
 services:
     wordpress1:
         image: wordpress
+        restart: always
+        environment:
+            WORDPRESS_DB_HOST: database
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+            WORDPRESS_DB_NAME: wordpress
         ports:
             - "9001:80"
+        volumes:
+            - /project1/html1:/var/www/html
         networks:
             - network1
-    
-    Wordpress2:
+    wordpress2:
         image: wordpress
+        restart: always
+        environment:
+            WORDPRESS_DB_HOST: database
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+            WORDPRESS_DB_NAME: wordpress
         ports:
             - "9002:80"
+        volumes:
+            - /project1/html2:/var/www/html
         networks:
             - network1
-    ng1:
-        image: nginx
-        ports: 
-            - "80:80"
+    database:
+        image: mysql
+        container_name: database
+        restart: always
+        environment:
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress
+            MYSQL_RANDOM_ROOT_PASSWORD: '1'
+        volumes:
+            - /project1/db-data:/var/lib/mysql
         networks:
             - network1
+volumes:
+  wordpress1_data:
+  wordpress2_data:
+  db_data:
 networks:
     network1
-        
