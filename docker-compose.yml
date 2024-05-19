@@ -42,7 +42,8 @@ services:
         networks:
             - network1
     nginx:
-         image: newnginx
+         bulid:
+            ./nginx
          container_name: nginx
          restart: always
          ports:
