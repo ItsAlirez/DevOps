@@ -50,7 +50,9 @@ services:
             - "80:80"
          depends_on:
             - wordpress1
-            - wordpress2        
+            - wordpress2
+         networks:
+            - network1        
 volumes:
   wordpress1_data:
   wordpress2_data:
