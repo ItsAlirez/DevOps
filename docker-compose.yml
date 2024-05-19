@@ -46,7 +46,7 @@ services:
          restart: always
          ports:
             - "8080:8080"
-            - "8090:8090"           
+            - "8070:8070"           
          depends_on:
             - wordpress1
             - wordpress2
