@@ -1,0 +1,3 @@
+[submodule "homelist_django"]
+	path = homelist_django
+	url = https://github.com/ItsAlirez/homelist_django.git
